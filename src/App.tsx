@@ -307,7 +307,7 @@ function App() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <MapPin className="h-4 w-4 mr-2 text-slate-400 group-hover:text-slate-300 transition-colors flex-shrink-0" />
-                <span className="text-sm">MG Auditorium, VIT Chennai</span>
+                <span className="text-sm">VIT Chennai Campus, MG Auditorium</span>
               </motion.div>
               <motion.div 
                 className="flex items-center justify-center text-gray-300 group cursor-pointer"
@@ -569,7 +569,7 @@ function App() {
                   transition={{ delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  With over <strong className="text-cyan-400">2.5 million subscribers</strong> on YouTube and 
+                  With over <strong className="text-cyan-400"> 900k+ subscribers</strong> on YouTube and 
                   <strong className="text-purple-400"> 1 million+ students</strong> trained, he has revolutionized 
                   how aspiring developers approach Data Structures and Algorithms.
                 </motion.p>
@@ -594,9 +594,9 @@ function App() {
               viewport={{ once: true }}
             >
               {[
-                { icon: Youtube, value: "2.5M+", label: "YouTube Subscribers", color: "text-red-500", bgColor: "from-red-500/10 to-red-600/10" },
+                { icon: Youtube, value: "900k+", label: "YouTube Subscribers", color: "text-red-500", bgColor: "from-red-500/10 to-red-600/10" },
                 { icon: Users, value: "1M+", label: "Students Trained", color: "text-blue-500", bgColor: "from-blue-500/10 to-blue-600/10" },
-                { icon: Award, value: "Google", label: "Senior SDE", color: "text-yellow-500", bgColor: "from-yellow-500/10 to-yellow-600/10" },
+                { icon: Award, value: "Ex-Google", label: "Senior SDE", color: "text-yellow-500", bgColor: "from-yellow-500/10 to-yellow-600/10" },
                 { icon: BookOpen, value: "takeUforward", label: "Founder & CEO", color: "text-green-500", bgColor: "from-green-500/10 to-green-600/10" }
               ].map((stat, index) => (
                 <motion.div
@@ -731,13 +731,13 @@ function App() {
                   className="text-3xl md:text-4xl font-bold text-white mb-6 md:mb-10"
                   whileHover={{ scale: 1.05 }}
                 >
-                  MG Auditorium
+                  VIT Chennai
                 </motion.h3>
                 
                 <div className="space-y-6 md:space-y-8">
                   {[
-                    { icon: MapPin, title: "Location", desc: "VIT Chennai Campus, Main Block", color: "text-cyan-400" },
-                    { icon: Users, title: "Capacity", desc: "500+ Seats with Premium Audio-Visual Setup", color: "text-purple-400" },
+                    { icon: MapPin, title: "Location", desc: "MG Auditorium", color: "text-cyan-400" },
+                    { icon: Users, title: "Capacity", desc: "2000+ Seats with Premium Audio-Visual Setup", color: "text-purple-400" },
                     { icon: Star, title: "Facilities", desc: "Air Conditioning, Comfortable Seating", color: "text-yellow-400" }
                   ].map((item, index) => (
                     <motion.div 
