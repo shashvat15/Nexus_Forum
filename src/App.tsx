@@ -218,7 +218,7 @@ function App() {
                 className="text-white font-bold text-xs md:text-lg cursor-pointer hover:text-purple-400 transition-colors duration-300"
                 whileHover={{ scale: 1.1 }}
               >
-                <span className="hidden sm:inline">TAKE U FORWARD</span>
+                <span className="hidden sm:inline">takeUforward</span>
                 <span className="sm:hidden">TUF</span>
               </motion.a>
               {/* <div className="text-white/80 text-xs md:text-sm hidden sm:block">OSW</div> */}
@@ -737,7 +737,7 @@ function App() {
                 <div className="space-y-6 md:space-y-8">
                   {[
                     { icon: MapPin, title: "Location", desc: "MG Auditorium", color: "text-cyan-400" },
-                    { icon: Users, title: "Capacity", desc: "2000+ Seats with Premium Audio-Visual Setup", color: "text-purple-400" },
+                    { icon: Users, title: "Capacity", desc: "1500+ Seats with Premium Audio-Visual Setup", color: "text-purple-400" },
                     { icon: Star, title: "Facilities", desc: "Air Conditioning, Comfortable Seating", color: "text-yellow-400" }
                   ].map((item, index) => (
                     <motion.div 
