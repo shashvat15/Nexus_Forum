@@ -812,25 +812,30 @@ function App() {
           </div>
 
           <div className="bg-gradient-to-br from-gray-900/50 via-black/30 to-gray-900/50 backdrop-blur-xl border border-white/20 rounded-2xl md:rounded-3xl p-6 md:p-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
-              {[
-                { icon: Calendar, title: "Registration Opens", date: "September 8, 2025 - 10:00 AM", color: "text-cyan-400" },
-                { icon: Clock, title: "Registration Deadline", date: "September 18, 2025 - 11:59 PM", color: "text-purple-400" },
-                { icon: Star, title: "Event Day", date: "September 19, 2025 - 2:00 PM", color: "text-yellow-400" }
-              ].map((item) => (
-                <div 
-                  key={item.title}
-                  className="group cursor-pointer"
-                >
-                  <div>
-                    <item.icon className={`h-10 w-10 md:h-12 md:w-12 ${item.color} mx-auto mb-4 md:mb-6 group-hover:drop-shadow-lg`} />
-                  </div>
-                  <h4 className="text-white font-bold mb-3 md:mb-4 text-lg md:text-xl">{item.title}</h4>
-                  <p className="text-gray-300 text-base md:text-lg">{item.date}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 text-center">
+    {[
+      { icon: Calendar, title: "Registration Opens", date: "September 8, 2025 - 10:00 AM", color: "text-cyan-400" },
+      { icon: Clock, title: "Registration Deadline", date: "September 18, 2025 - 11:59 PM", color: "text-purple-400" },
+      { icon: Star, title: "Event Day", date: "September 19, 2025 - 2:00 PM", color: "text-yellow-400" },
+      { icon: AlarmClock, title: "Entry Starts", date: "September 19, 2025 - 12:30 PM", color: "text-green-400", glow: true }
+    ].map((item) => (
+      <div 
+        key={item.title}
+        className="group cursor-pointer relative"
+      >
+        <div className="relative flex justify-center">
+          {/* Glow effect for Entry Starts */}
+          {item.glow && (
+            <span className="absolute -inset-2 rounded-full blur-xl opacity-70 animate-pulse bg-green-400/40 pointer-events-none"></span>
+          )}
+          <item.icon className={`h-10 w-10 md:h-12 md:w-12 ${item.color} mx-auto mb-4 md:mb-6 group-hover:drop-shadow-lg relative z-10`} />
+        </div>
+        <h4 className="text-white font-bold mb-3 md:mb-4 text-lg md:text-xl">{item.title}</h4>
+        <p className="text-gray-300 text-base md:text-lg">{item.date}</p>
+      </div>
+    ))}
+  </div>
+</div>
         </div>
       </section>
 
@@ -1176,10 +1181,10 @@ function App() {
                     >
                       <span className="text-white font-medium text-sm md:text-base">{coordinator.name}</span>
                       <a 
-                        href={`tel:${coordinator.number}`}
+                        href={`tel:${coordinator}`}
                         className="text-purple-400 hover:text-purple-300 transition-colors duration-300 text-sm md:text-base"
                       >
-                        {coordinator.number}
+                        
                       </a>
                     </motion.div>
                   ))}
