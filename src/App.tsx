@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   Calendar, MapPin, Clock, Users, Star, Youtube, ExternalLink, Timer, Award, 
   TrendingUp, BookOpen, Rocket, Crown, Sparkles,
-  ArrowRight, ChevronDown, Globe, Code, Lightbulb
+  ArrowRight, ChevronDown, Globe, Code, Lightbulb, AlarmClock
 } from 'lucide-react';
 
 function App() {
@@ -315,7 +315,15 @@ function App() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <Calendar className="h-4 w-4 mr-2 text-slate-400 group-hover:text-slate-300 transition-colors flex-shrink-0" />
-                <span className="text-sm">September 19, 2025</span>
+                <span className="text-sm">September 19, 2025 </span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center justify-center text-gray-300 group cursor-pointer"
+                whileHover={{ x: 5, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <AlarmClock className="h-4 w-4 mr-2 text-slate-400 group-hover:text-slate-300 transition-colors flex-shrink-0" />
+                <span className="text-sm">2:00PM - 6:00PM</span>
               </motion.div>
             </motion.div>
             
@@ -402,6 +410,14 @@ function App() {
               >
                 <Calendar className="h-5 w-5 md:h-6 md:w-6 mr-3 md:mr-4 text-slate-400 group-hover:text-slate-300 transition-colors flex-shrink-0" />
                 <span className="text-lg md:text-xl">September 19, 2025</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center justify-center lg:justify-start text-gray-300 group cursor-pointer"
+                whileHover={{ x: 5, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <AlarmClock className="h-5 w-5 md:h-6 md:w-6 mr-3 md:mr-4 text-slate-400 group-hover:text-slate-300 transition-colors flex-shrink-0" />
+                <span className="text-lg md:text-xl">2:00PM - 6:00PM</span>
               </motion.div>
             </motion.div>
 
@@ -800,7 +816,7 @@ function App() {
               {[
                 { icon: Calendar, title: "Registration Opens", date: "September 8, 2025 - 10:00 AM", color: "text-cyan-400" },
                 { icon: Clock, title: "Registration Deadline", date: "September 18, 2025 - 11:59 PM", color: "text-purple-400" },
-                { icon: Star, title: "Event Day", date: "September 19, 2025 - 10:00 AM", color: "text-yellow-400" }
+                { icon: Star, title: "Event Day", date: "September 19, 2025 - 2:00 PM", color: "text-yellow-400" }
               ].map((item) => (
                 <div 
                   key={item.title}
@@ -817,6 +833,127 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* How to Register Section */}
+      <motion.section 
+        className="py-16 md:py-32 bg-gradient-to-b from-black via-gray-900/20 to-black relative"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-20">
+            <div>
+              <ExternalLink className="h-12 w-12 md:h-20 md:w-20 text-cyan-400 mx-auto mb-6 md:mb-8" />
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-purple-400 mb-6 md:mb-8 tracking-tight">
+              HOW TO REGISTER
+            </h2>
+            <div className="w-24 md:w-32 h-1 md:h-2 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto rounded-full mb-4 md:mb-6" />
+            <p className="text-gray-300 text-lg md:text-2xl">
+              Follow these simple steps to secure your spot
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 md:gap-16 items-center">
+            {/* Video Container - Larger (3 columns) */}
+            <motion.div 
+              className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/20 shadow-xl shadow-cyan-500/10 aspect-video lg:col-span-3"
+              initial={{ scale: 0.95, opacity: 0.8 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              whileHover={{ 
+                boxShadow: "0 25px 50px -12px rgba(8, 145, 178, 0.25)",
+                borderColor: "rgba(255, 255, 255, 0.4)"
+              }}
+            >
+              {/* Actual video with fullscreen capability */}
+              <video 
+                className="w-full h-full object-cover"
+                src="/guide.mp4"
+                controls
+                controlsList="nodownload"
+                poster="/nexus_logo_png.png"
+              >
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Gradient overlay for better UI integration */}
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5" />
+            </motion.div>
+
+            {/* Registration Steps - Smaller (2 columns) */}
+            <motion.div 
+              className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/20 shadow-xl lg:col-span-2"
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              whileHover={{ borderColor: "rgba(255, 255, 255, 0.3)" }}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center">
+                <Globe className="h-6 w-6 md:h-7 md:w-7 text-cyan-400 mr-3" />
+                Registration Instructions
+              </h3>
+              
+              <div className="space-y-5 md:space-y-6">
+                <motion.div 
+                  className="flex items-start space-x-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="bg-gradient-to-br from-cyan-500 to-purple-500 rounded-full h-8 w-8 flex-shrink-0 flex items-center justify-center text-white font-bold">
+                    1
+                  </div>
+                  <div className="text-gray-200 text-lg md:text-xl">
+                    Login to <a 
+                      href="https://eventhubcc.vit.ac.in/EventHub/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-cyan-400 hover:text-cyan-300 hover:underline transition-colors"
+                    >
+                      eventhubcc.vit.ac.in/EventHub
+                    </a>
+                  </div>
+                </motion.div>
+                
+                {[
+                  "In the search bar select Summit",
+                  "Go to NexusForum (Free Registration)",
+                  "Click on Register."
+                ].map((step, index) => (
+                  <motion.div 
+                    key={index}
+                    className="flex items-start space-x-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + (index * 0.1) }}
+                    whileHover={{ x: 5 }}
+                  >
+                    <div className="bg-gradient-to-br from-cyan-500 to-purple-500 rounded-full h-8 w-8 flex-shrink-0 flex items-center justify-center text-white font-bold">
+                      {index + 2}
+                    </div>
+                    <div className="text-gray-200 text-lg md:text-xl">{step}</div>
+                  </motion.div>
+                ))}
+                
+                <motion.div 
+                  className="mt-8 flex items-center justify-center"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.7 }}
+                >
+                  <div className="bg-gradient-to-r from-cyan-500 to-purple-500 p-4 rounded-xl text-white font-bold text-xl text-center">
+                    All Set!!
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
 
       {/* Enhanced Registration CTA Section */}
       <motion.section 
